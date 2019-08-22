@@ -1,4 +1,4 @@
-package com.sinbugs.contacts.api;
+package com.accenture.contacts.api;
 
 public class ContactResponse {
 

@@ -1,10 +1,10 @@
-package com.sinbugs.contacts.service;
+package com.accenture.contacts.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sinbugs.contacts.dao.ContactRepository;
-import com.sinbugs.contacts.dto.Contact;
+import com.accenture.contacts.dao.ContactRepository;
+import com.accenture.contacts.dto.Contact;
 import java.util.List;
 
 @Service

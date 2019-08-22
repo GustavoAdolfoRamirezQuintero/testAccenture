@@ -1,4 +1,4 @@
-package com.sinbugs.contacts.api;
+package com.accenture.contacts.api;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;

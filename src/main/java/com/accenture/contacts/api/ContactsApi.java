@@ -1,4 +1,4 @@
-package com.sinbugs.contacts.api;
+package com.accenture.contacts.api;
 
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sinbugs.contacts.dto.Contact;
-import com.sinbugs.contacts.service.ContactService;
+import com.accenture.contacts.dto.Contact;
+import com.accenture.contacts.service.ContactService;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,7 +73,7 @@ public class ContactsApi {
 
     /**
      *
-     * @param id
+     *find all contacts
      * @return
      */
     @RequestMapping(value = "/contact/findAllContacts", method = RequestMethod.GET)

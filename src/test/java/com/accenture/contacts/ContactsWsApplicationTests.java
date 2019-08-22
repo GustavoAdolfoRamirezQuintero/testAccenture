@@ -1,7 +1,7 @@
-package com.sinbugs.contacts;
+package com.accenture.contacts;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sinbugs.contacts.api.ContactResponse;
+import com.accenture.contacts.api.ContactResponse;
 import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,9 +19,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -35,7 +32,7 @@ public class ContactsWsApplicationTests {
     public void setup() throws Exception {
         mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
     }
-
+    
     @Test
     public void contextLoads() {
     }
@@ -52,42 +49,32 @@ public class ContactsWsApplicationTests {
                 )
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(content().contentType("application/json;charset=UTF-8"));
-                //.andExpect(jsonPath("$.message").value("OK"));
+        //.andExpect(jsonPath("$.message").value("OK"));
     }
-    
+
     /**
      * Send POST Request con Formdata
      *
      * @throws Exception
      */
     @Test
-    public void givenGreetURIWithPostAndFormData_whenMockMVC_thenResponseOK() throws Exception {
-        String nombre = "Zrii restfull " + new Date().getTime();
-        ContactResponse empresa = new ContactResponse();
-        empresa.setId(1l);
-        empresa.setFirstName(nombre);
-        empresa.setEmail("www.zrii.com");
+    public void validoIngresoDatosAlGuardarContacto() throws Exception {
+        String nombre = "Accenture" + new Date().getTime();
+        ContactResponse contacto = new ContactResponse();
+        contacto.setId(1l);
+        contacto.setFirstName(nombre);
+        contacto.setEmail("accenture@gmail.com");
+        contacto.setPhoneNumber("+573108735363");
         //pruebo servicio rest
-        this.mockMvc.perform(post("/contact/save.json")
-                //.session(sessionHolder.getSession())
+        this.mockMvc.perform(post("/contact/saveOrUpdate.json")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(asJsonString(empresa)))
-//                                .param("id", "1")
-//                                .param("nombre", nombre)
-//                                .param("web", "www.zrii.com"))
+                .content(asJsonString(contacto)))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.datos.id").value(1))
-                .andExpect(jsonPath("$.datos.nombre").value(nombre));
-               
-
-                
-        //comparo contra lo que tengo en bd usando servicio spring
-        //ContactResponse empresa2 = servicioAdminEmpresa.cargarEntidad(1l).getObjetoRespuesta();
-        //assertEquals(nombre, empresa2.getNombre());
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.firstName").value(nombre));
     }
-    
+
     /**
      * converts a Java object into JSON representation
      */
@@ -98,5 +85,5 @@ public class ContactsWsApplicationTests {
             throw new RuntimeException(e);
         }
     }
-
+    
 }

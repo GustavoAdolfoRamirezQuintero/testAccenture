@@ -1,4 +1,4 @@
-package com.sinbugs.contacts.conf;
+package com.accenture.contacts.conf;
 
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;

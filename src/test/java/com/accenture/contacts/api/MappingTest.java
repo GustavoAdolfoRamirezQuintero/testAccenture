@@ -1,5 +1,6 @@
-package com.sinbugs.contacts.api;
+package com.accenture.contacts.api;
 
+import com.accenture.contacts.api.ContactRequest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.dozer.Mapper;
@@ -9,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sinbugs.contacts.dto.Contact;
+import com.accenture.contacts.dto.Contact;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -1,4 +1,4 @@
-package com.sinbugs.contacts.dto;
+package com.accenture.contacts.dto;
 
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.Id;
@@ -10,7 +10,6 @@ import lombok.Data;
 @Document(collection = "contact")
 public class Contact {
 
-    //private static final long serialVersionUID = 4894729030347835498L;
 
     @Id
     private Long id;

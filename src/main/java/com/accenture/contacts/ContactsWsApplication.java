@@ -1,4 +1,4 @@
-package com.sinbugs.contacts;
+package com.accenture.contacts;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
